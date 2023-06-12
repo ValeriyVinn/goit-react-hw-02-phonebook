@@ -16,14 +16,13 @@ export class App extends Component {
   };
 
   addContact = (name, number) => {
-    const contactData = {
-      name,
-      number,
-      id: nanoid(),
-    };
-    this.setState(prevState => ({
-      contacts: [contactData, ...prevState.contacts],
-    }));
+    !this.state.contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    )
+      ? this.setState(prevState => ({
+          contacts: [...prevState.contacts, { id: nanoid(), name, number }],
+        }))
+      : alert(`${name} is already in contacts, sorry`);
   };
 
   deleteContact = contactId => {
