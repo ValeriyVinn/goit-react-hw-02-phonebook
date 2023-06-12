@@ -57,8 +57,9 @@ export class ContactForm extends Component {
               name="number"
               value={number}
               onChange={this.handleInputChange}
-              pattern="^[0-9]+-[0-9]+-[0-9]+$"
-              title="Phone number must be digits and two dashes between"
+              pattern="^\d{3}-\d{2}-\d{2}$"
+              // pattern="^[0-9]+-[0-9]+-[0-9]+$"
+              title="The phone number should look like this: 012-34-56"
               required
               className={css.input}
             />
